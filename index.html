@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,code,del,dfn,em,img,q,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline}
+		body{line-height:1.5;font-size:14px;font-family:'Roboto',sans-serif;margin-right:0px;background:#fff}
+		table{border-collapse:separate;border-spacing:0}
+		caption,th,td{text-align:left;font-weight:normal}
+		table,td,th{vertical-align:middle}
+		blockquote:before,blockquote:after,q:before,q:after{content:""}
+		blockquote,q{quotes:"" ""}
+		a img{border:none}
+
+
+
+
+		div {
+			text-align: center;
+			padding: 30px;
+			border: 1px solid #333;
+			width: 30%;
+			margin: 15px auto;
+		}
+
+		.scroll {
+			height:150px;
+    		overflow-y:scroll;
+		}
+
+		.scroll span {
+			display: none;
+		}
+
+		button {
+			margin-left: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="click-me">Click</div>
+
+	<div class="hover-me">Hover</div>
+	<div tabindex="1">
+
+		<button class="focus-me">Focus</button>
+
+		<button class="focusin-me">FocusIN</button>
+
+		<button class="focusout-me">FocusOUT</button>
+	</div>
+	<!-- <div class="focus-me" tabindex="1">Focus</div> -->
+
+	<div class="contextmenu">Contextmenu</div>
+
+	<div tabindex="1" class="blur">
+		Blur - hãy di chuyển chuột ra để nhận thấy khác biệt
+	</div>
+
+
+	<div>
+		Change - hãy di chuyển chuột ra để nhận thấy khác biệt
+		<input type="text" class="change">
+		<button class="button-change">Nhập xong nhớ click</button>
+		<p class="import-change"></p>
+	</div>
+
+
+	
+	<div class="scroll">
+		<p>Đã nhập xyz <span>scrolling</span></p>
+		<p>Đã nhập xyz <span>scrolling</span></p>
+		<p>Đã nhập xyz <span>scrolling</span></p>
+		<p>Đã nhập xyz <span>scrolling</span></p>
+		<p>Đã nhập xyz <span>scrolling</span></p>
+		<p>Đã nhập xyz <span>scrolling</span></p>
+		<p>Đã nhập xyz <span>scrolling</span></p>
+		<p>Đã nhập xyz <span>scrolling</span></p>
+		<p>Đã nhập xyz <span>scrolling</span></p>
+	</div>
+
+
+
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		/* 
+			Sự kiện click
+		*/
+
+		$(document).ready(function($) {
+			$(".click-me").click(function() {
+				$(".click-me").css({
+					"background":"red",
+					"color":"#fff",
+					"font-size":"30px"
+				});
+			});
+		});
+
+		/* 
+			Sự kiện hover
+		*/
+
+		$(document).ready(function($) {
+			$(".hover-me").hover(function() {
+				$(".hover-me").css({
+					"background":"green",
+					"color":"#555",
+					"font-size":"30px"
+				});
+			});
+		});
+
+		/* 
+			Sự kiện focus
+		*/
+
+		$(document).ready(function($) {
+			$(".focus-me").focus(function() {
+				$(".focus-me").css({
+					"background":"blue",
+					"color":"#000",
+					"font-size":"20px"
+				});
+			});
+		});
+
+		/* 
+			Sự kiện focusin
+		*/
+
+		$(document).ready(function($) {
+			$(".focusin-me").focusin(function() {
+				$(".focusin-me").css({
+					"background":"yellow",
+					"color":"#000",
+					"font-size":"20px"
+				});
+			});
+		});
+
+		/* 
+			Sự kiện focusout
+		*/
+
+		$(document).ready(function($) {
+			$(".focusout-me").focusout(function() {
+				$(".focusout-me").css({
+					"background":"smokewhite",
+					"color":"#000",
+					"font-size":"20px"
+				});
+			});
+		});
+
+		/* 
+			Sự kiện contextmenu
+		*/
+
+		$(document).ready(function($) {
+			$(".contextmenu").contextmenu(function() {
+				alert("Bạn vừa click chuột phải vào tôi đó!!");
+			});
+		});
+
+		/* 
+			Sự kiện blur
+		*/
+
+		$(document).ready(function($) {
+			$(".blur").click(function() {
+				$(".blur").css({
+					"background":"#999999"
+				})
+			});
+		});
+
+		$(document).ready(function($) {
+			$(".blur").blur(function() {
+				$(".blur").css({
+					"background":"#fff"
+				})
+			});
+		});
+
+		/* 
+			Sự kiện change
+		*/
+		$(document).ready(function($) {
+			$(".change").change(function() {
+				$('.import-change').text("Đã nhập vào xyz");
+				$(".import-change").css("font-size","30px")
+			});
+
+			$(".button-change").click(function() {
+				$('.change').change()
+			});
+		});
+
+		/*
+			Sự kiện scroll
+		*/
+
+		$(document).ready(function($) {
+			$(".scroll").scroll(function() {
+				$( "span" ).css({
+					"display" : "inline-block",
+					"color"   : "red"
+				});
+			})
+		});
+
+
+	</script>
+</body>
+</html>
